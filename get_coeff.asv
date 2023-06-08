@@ -1,0 +1,8 @@
+function [coefficients] = get_coeff(source, config)
+%get_coeff returns the Lx1 complex vector representing the scattering
+%coefficients of the target or clutter
+if strcmp(source,'target')
+    coefficients = sqrt(config.varX/2)*(randn(config.N,1) + 1i*randn(config.N,1));
+else % strcmp(source,'clutter')
+    
+end
