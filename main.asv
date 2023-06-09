@@ -33,7 +33,7 @@ Y = A*X_t*Phi_t + A*X_c*Phi_c + E;
 %% Generalized Likelihood Ratio Test (GLRT)
 
 % MLE of X_t
-X_t_hat = diag(diag(A\Y*Phi_t'*inv(Phi_t*Phi_t'));
+X_t_hat = diag(diag(A\Y*Phi_t'*inv(Phi_t*Phi_t')));
 
 % GLRT
 GLRT = det(Y*Y')/det((Y-A*X_t_hat*Phi_t)*(Y-A*X_t_hat*Phi_t)')
