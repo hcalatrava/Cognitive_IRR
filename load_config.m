@@ -14,4 +14,5 @@ function [config] = load_config
     config.eta_true = [10, 10]';
     config.fc = 8e9; % carrier frequency in Hz
     config.var_noise = 5; % std measurement noise e(t)
+    config.gamma = 3; % gamma detection threshold
 end
