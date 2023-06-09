@@ -4,10 +4,10 @@ function [config] = load_config
 % 
 config.var_noise = 5; % std measurement noise e(t)
 config.N = 15; % number of temporal measurements
-config.N_mc = 20e3;
+config.N_mc = 1e3;
 
 % OFDM
-config.L = 5; % number of active subcarriers
+config.L = 1; % number of active subcarriers
 config.Deltaf = 20e6; % subcarrier spacing in Hz
 config.T = 1/config.Deltaf; % OFDM TX pulse duration in seconds
 config.B = config.L*config.Deltaf; % OFDM bandwidth B in Hz
