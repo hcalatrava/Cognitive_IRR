@@ -2,7 +2,7 @@ function [config] = load_config
 %LOAD_CONFIG loads the scenario configuration
 
 % 
-config.var_noise = 5; % std measurement noise e(t)
+config.var_noise = 5; % std measurement noise e(t) TODO: get from the CNR expression
 config.N = 15; % number of temporal measurements
 config.N_mc = 1e3;
 
@@ -16,9 +16,15 @@ config.fc = 8e9; % carrier frequency in Hz
 % Target
 config.TCR = 5; % target-to-noie ratio in dB
 config.target_velocity = [10, 10]'; % target velocity in m/s
-config.target_angle = [10, 10]'; % TODO: check best value for this parameter
+%config.target_angle = [10, 10]'; % TODO: check best value for this parameter
 config.eta_true = [10, 10]';
 config.varX = 1; % variance of the complex scattering coefficients (target)
+
+% Line-of-Sight (LOS) vector
+%config.radar_pos_ECEF = [0, 0];
+config.target_dist_north = 5e3; % in meters
+config.target_dist_east = 5; 
+
 
 % Clutter
 config.CNR = 10; % clutter-to-noise ratio in dB
