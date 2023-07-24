@@ -1,7 +1,0 @@
-function config = configuration
-    config.CNR = 10; % clutter-to-noise ratio in dB
-    config.TCR = 5; % target-to-noie ratio in dB
-    config.N = 15; % number of temporal measurements
-    config.L = 5; % number of active subcarriers
-    config.Deltaf = 20e6; % subcarrier spacing in Hz
-end
