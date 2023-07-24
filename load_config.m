@@ -58,7 +58,7 @@ elseif config_id == 1
     config.fc = 1e9; % carrier frequency in Hz
     
     % Target
-    config.SNR = -15; % signal-to-noise ratio in dB
+    config.SNR = -10; % signal-to-noise ratio in dB
     config.target_velocity = [7.07, 7.07]'; % target velocity in m/s
     config.varX = 1; % variance of the complex scattering coefficients (target)
     % Line-of-Sight (LOS) vector

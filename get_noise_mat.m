@@ -22,7 +22,7 @@ E = zeros(config.L, config.N);
 for i=1:config.N
     % We generate N vectors e(t), each one satisfying:
     % E[e(t)*e^H(t)] = Sigma_c
-    e = chol(Sigma_c)'*sqrt(1/2)*(1+1i)*randn(config.L,1);
+    e = chol(Sigma_c)'*sqrt(1/2)*(randn(config.L,1)+1i*randn(config.L,1));
     E(:,i) = e;
 end
 noise_mat = E;
