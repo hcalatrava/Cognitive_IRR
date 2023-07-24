@@ -29,7 +29,7 @@ subplot(2,1,2)
 
 % Loop through different number of subcarriers L
 L_vector = [2,4,6]; % values of L for which a ROC curve is computed
-gamma_vector = config.gamma_vector % values of \gamma tested to compute the ROC curve
+gamma_vector = config.gamma_vector; % values of \gamma tested to compute the ROC curve
 for idx_L = 1:length(L_vector)
 
     % Generate OFDM measurements
@@ -126,7 +126,7 @@ subplot(2,1,1)
 
 % Loop through different values of SNR
 SNR_vector = [-5, -10, -15]; % in dB
-gamma_vector = config.gamma_vector % values of \gamma tested to compute the ROC curve
+gamma_vector = config.gamma_vector; % values of \gamma tested to compute the ROC curve
 for idx_SNR = 1:length(SNR_vector)
     
     % Generate OFDM measurements
