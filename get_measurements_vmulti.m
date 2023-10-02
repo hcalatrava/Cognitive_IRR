@@ -1,4 +1,4 @@
-function [Y, Sigma_c, X_t] = get_measurements_vmulti(config, hypothesis, A, Phi_t, Phi_c)
+function [Y, Sigma_c, X_t] = get_measurements_vmulti(config, hypothesis, A, Phi_t)
 % ------------------------------------------------------------------------------
 % Cognitive Interference Resilient Radar (Cognitive_IRR) 
 % Author: Helena Calatrava
@@ -17,20 +17,13 @@ function [Y, Sigma_c, X_t] = get_measurements_vmulti(config, hypothesis, A, Phi_
 % Complex coefficients
 % Calculate for H1 (target is present) and H0 (only clutter is present)
 % We follow statistical model (2), i.e., clutter coefficients are 0
-X_t_H1 = diag(get_coeff('target', config, A, 0)); % LxL complex diagonal matrix repressenting the scattering coefficients (target)
-X_t_H0 = zeros(config.L);
 
 % Complex coefficients
 if strcmp(hypothesis, 'H1')
-    X_t = X_t_H1;
+    X_t = diag(sqrt(config.varX/2)*(randn(config.L,1) + 1i*randn(config.L,1))); % LxL complex diagonal matrix repressenting the scattering coefficients (target)
 else % strcmp(hypothesis, 'H0')
-    X_t = X_t_H0; % all zeros
+    X_t = zeros(config.L); % all zeros
 end
-
-% Get clutter coefficients: following the model in (2), they are all zeros
-clutter_coeffs = zeros(config.L,1);
-% Build X_c with the computed clutter coefficients
-X_c = diag(clutter_coeffs); % LxL complex diagonal matrix repressenting the scattering coefficients (clutter)
 
 % Scale covariance matrix Sigma_c
 % Sigma_c is used to get this noise term
@@ -50,5 +43,5 @@ Sigma_c = k^2*R;
 E = get_noise_mat(config, Sigma_c);
 
 % Build the measurements
-Y = A*X_t*Phi_t + A*X_c*Phi_c + E;
+Y = A*X_t*Phi_t + E;
 end
