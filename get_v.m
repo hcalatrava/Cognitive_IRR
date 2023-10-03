@@ -1,4 +1,4 @@
-function GLRT_max = get_OFDM_GLRT(v, config, LOS_vector, Y, X, A_nonopt, T_rangecell)
+function diff = get_v(v, config, LOS_vector, Y, X, A_nonopt, T_rangecell)
     
 %     v = config.target_velocity
     % ESTIMATION OF [Phi_t matrix]
@@ -33,11 +33,11 @@ function GLRT_max = get_OFDM_GLRT(v, config, LOS_vector, Y, X, A_nonopt, T_range
         X_hat = inv(A_nonopt) * (Y*Phi_t') * pinv(Phi_t*Phi_t');
     end
 
-    GLRT_nu = (1/config.N)*Y*Y';
-    GLRT_de = (1/config.N)*(Y-A_nonopt*X_hat*Phi_t)*(Y-A_nonopt*X_hat*Phi_t)';
-    GLRT_max = -real(det(GLRT_nu))/real(det(GLRT_de));
+%     GLRT_nu = (1/config.N)*Y*Y';
+%     GLRT_de = (1/config.N)*(Y-A_nonopt*X_hat*Phi_t)*(Y-A_nonopt*X_hat*Phi_t)';
+%     GLRT_max = -real(det(GLRT_nu))/real(det(GLRT_de));
 
-%     GLRT_max = abs(real(mean(mean((Y-A_nonopt*X_hat*Phi_t)))));
+    diff = abs(real(mean(mean((Y-A_nonopt*X_hat*Phi_t)))));
 %     disp('FMINSEARCH')
 %     disp('velocity:')
 %     disp(v)

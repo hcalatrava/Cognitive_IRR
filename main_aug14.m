@@ -30,7 +30,7 @@ config.enable_awd = 0;
 L_vector = [1, 3, 5]; % values of L pqfor which a ROC curve is computed
 
 subplot(2,1,2)
-config.N_mc = 50000;
+% config.N_mc = 50000;
 
 % Loop through different number of subcarriers L
 for idx_L = 1:length(L_vector)

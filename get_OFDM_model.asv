@@ -35,7 +35,7 @@ function [A, X_H1, Phi_t, Sigma_c] = get_OFDM_model(config, LOS_vector, T_rangec
     end
     signal_power = signal_power/config.N;
     SNR_predefined_lin = 10^(config.SNR_predefined/10);
-%     R_sqrt = (randn(config.L) + 1i*randn(config.L))*(1/sqrt(2));
+    R_sqrt = (randn(config.L) + 1i*randn(config.L))*(1/sqrt(2));
     R_sqrt = eye(config.L);
     noise_power = trace(R_sqrt'*R_sqrt);
     R = R_sqrt'*R_sqrt;

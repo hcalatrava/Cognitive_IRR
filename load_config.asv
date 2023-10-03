@@ -216,8 +216,8 @@ elseif config_id == 5%'dynamical'
     config.enable_awd = 1;
 elseif config_id == 6 %analysis_system' % main_sep26.m script
     % Plotting configuration
-    config.plot_color = ["blue", "red", "black", "cyan", "magenta"];
-    config.plot_linestyle = ["-.", "--", "-", "-", ":"];
+    config.plot_color = ["blue", "red", "black"];
+    config.plot_linestyle = ["-.", "--", "-"];
 
     % General config
 %     config.var_noise = 1; % std measurement noise e(t) (known)
@@ -238,7 +238,7 @@ elseif config_id == 6 %analysis_system' % main_sep26.m script
     config.Deltaf = 1/config.T;
 %     
     % Target
-    config.SNR_predefined = -15; % target-to-noie ratio in dB
+    config.SNR_predefined = -10; % target-to-noie ratio in dB
     config.target_velocity = [10, 10]'; % target velocity in m/s
     config.varX = 1; % variance of the complex scattering coefficients (target)    
     config.target_dist_north = 5; % distance of target from radar in the north direction
@@ -248,7 +248,7 @@ elseif config_id == 6 %analysis_system' % main_sep26.m script
     % Velocity is unknown so we maximize GLRT w.r.t. velocity
     % \tau_0 is assumed to be known so we calculate T_rangecell at start
     % covariance or factor \rho ???
-    config.clairvoyant = 0; % 1 if target coefficients are known by the receiver (unrealistic)
+    config.clairvoyant = 1; % 1 if target coefficients are known by the receiver (unrealistic)
     config.known_velocity = 0; % 0 if we want to maximize the GLRT w.r.t. the target velocity
     config.debug_GLRT = 0;
     config.debug_estimated_v = 0;
@@ -256,7 +256,6 @@ elseif config_id == 6 %analysis_system' % main_sep26.m script
     config.betatest_ROC_calculation = 0;
     config.sigma_random = 1; % This should be set to 1 for good performance when maximizing GLRT w.r.t. velocity
     config.coefficients_random = 1;
-    config.n_GLRT = 50;
 
     % Adaptive Waveform Design Module
     config.enable_awd = 0;
